@@ -1,0 +1,38 @@
+.toggle {
+    cursor: pointer;
+
+    &__input {
+        position: absolute;
+        left: -10000px;
+
+        appearance: none;
+
+        &:focus-visible + .toggle__body {
+            outline: 2px solid var(--black);
+        }
+
+        &:checked + .toggle__body {
+            background-color: var(--mandy);
+
+            .toggle__circle {
+                transform: translateX(100%);
+            }
+        }
+    }
+
+    &__body {
+        width: 40px;
+        padding: 2px;
+        border-radius: 50px;
+        background-color: var(--bombay);
+        transition: 400ms background-color;
+    }
+
+    &__circle {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background-color: var(--white);
+        transition: 400ms transform;
+    }
+}

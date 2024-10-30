@@ -1,0 +1,101 @@
+.context-menu {
+    cursor: pointer;
+
+    &__input {
+        position: absolute;
+        left: -10000px;
+
+        appearance: none;
+
+        &:focus-visible + .context-menu__body {
+            outline: 2px solid var(--black);
+        }
+
+        &:checked + .context-menu__body {
+            .context-menu__dropdown {
+                visibility: visible;
+                opacity: 1;
+                transition-delay: 0s;
+                transform: translateY(0);
+            }
+        }
+    }
+
+    &__body {
+        position: relative;
+        width: fit-content;
+    }
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+
+        gap: 2px;
+    }
+
+    &__icon-circle {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: var(--black);
+    }
+
+    &__dropdown {
+        position: absolute;
+        top: calc(100% + 16px);
+        right: 0;
+        visibility: hidden;
+        min-width: 176px;
+        padding: 24px 0;
+        border-radius: 8px;
+        background-color: rgba(255,255,255, 0.9);
+        opacity: 0;
+        transition: transform 0.3s cubic-bezier(0.3,0.1,0.3,1), opacity 0.3s cubic-bezier(0.3,0.1,0.3,1), visibility 0s 0.3s;
+        transform: translateY(-10px);
+    }
+
+    &__dropdown-item {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 8px 24px;
+        background-color: var(--white);
+        cursor: pointer;
+        transition: 400ms background-color;
+
+        gap: 16px;
+
+        &:hover {
+            background-color: var(--black-squeeze);
+        }
+    }
+
+    &__dropdown-item-icon {
+        width: 20px;
+        height: 20px;
+        color: var(--color_dark_gray);
+
+        svg {
+            width: inherit;
+            height: inherit;
+        }
+    }
+
+    &__dropdown-item-text {
+        color: var(--color_dark_gray);
+        font: 500 16px/18px 'Open Sans';
+    }
+}
+
+@media (min-width: 1024px) {
+    .context-menu {
+        &__dropdown {
+            right: auto;
+            left: 0;
+        }
+    }
+}

@@ -1,0 +1,119 @@
+.user-profile {
+    &__overview {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        gap: 24px;
+    }
+
+    &__photo {
+        flex-shrink: 0;
+        width: 120px;
+        height: 120px;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+
+    &__user-info {
+        display: flex;
+        flex-grow: 1;
+        justify-content: space-between;
+        column-gap: 24px;
+    }
+
+    &__name {
+        color: var(--black);
+        font: 600 24px/26px 'Montserrat';
+    }
+
+    &__nickname {
+        margin: 8px 0;
+        color: var(--black);
+        letter-spacing: -0.5px;
+        font: 400 16px/20px 'Open Sans';
+    }
+
+    &__edit {
+        display: flex;
+        align-items: center;
+        color: var(--red);
+        font: 400 18px/20px 'Open Sans';
+
+        gap: 8px;
+    }
+
+    &__edit-icon {
+        width: 20px;
+        height: 20px;
+
+        svg {
+            width: inherit;
+            height: inherit;
+        }
+    }
+
+    &__options-btn {
+        width: 24px;
+        height: 24px;
+    }
+
+    &__subs-info,
+    &__description {
+        margin-top: 24px;
+    }
+
+    &__subs-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 282px;
+    }
+
+    &__subs-col {
+        text-align: center;
+    }
+
+    &__subs-number {
+        color: var(--black);
+        font: 700 18px/24px 'Open Sans';
+    }
+
+    &__subs-title {
+        color: var(--black);
+        font: 400 16px/24px 'Open Sans';
+    }
+
+    &__description {
+        color: var(--black);
+        font: 400 16px/24px 'Open Sans';
+    }
+}
+
+@media (min-width: 1024px) {
+    .user-profile {
+        &__overview {
+            align-items: flex-start;
+            flex-wrap: nowrap;
+        }
+
+        &__nickname {
+            margin: 8px 0 16px;
+        }
+
+        &__user-info {
+            justify-content: flex-start;
+        }
+
+        &__subs-info {
+            margin-top: 32px;
+        }
+    }
+}
